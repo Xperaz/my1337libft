@@ -1,23 +1,21 @@
-#include <stdio.h>
-#include <ctype.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 20:17:14 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:26:43 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int  ft_isascii(int c){
-    if (!(c >= 0 && c <= 127))
-        return (0);
-    else
-        return (1);
-}
+#include "libft.h"
 
-int main()
+int	ft_isascii(int c)
 {
-    int ch;
- 
-   for (ch = 125; ch <= 130; ch++) {
-      printf("%d    ", ch);
-      if (ft_isascii(ch))
-         printf("The character is %c\n", ch);
-      else
-         printf("Cannot be represented by an ASCII character\n");
-   }
-   return 0;
+	if (!(c >= 0 && c <= 127))
+		return (0);
+	else
+		return (1);
 }

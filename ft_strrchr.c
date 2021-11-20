@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 21:16:15 by aouhadou          #+#    #+#             */
-/*   Updated: 2021/11/15 15:49:17 by aouhadou         ###   ########.fr       */
+/*   Created: 2021/11/09 22:04:35 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/11 15:25:48 by aouhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
-	size_t	size;
-	size_t	j;
+	char	ch;
+	char	*arr;
+	int		len;
+	int		i;
 
-	size = ft_strlen(needle);
-	if (!needle || size == 0)
-		return ((char *)(haystack));
-	i = 0;
-	while (haystack[i] && len > i)
+	len = ft_strlen(s);
+	arr = (char *)s;
+	ch = (char)c;
+	if (ch == '\0')
+		return (arr + len);
+	i = len - 1;
+	while (i >= 0)
 	{
-		j = 0;
-		while (haystack[j + i] == needle[j] && j + i < len)
-		{
-			j++;
-			if (needle[j] == '\0')
-				return (&((char *)(haystack))[i]);
-		}
-		i++;
+		if (arr[i] == ch)
+			return (&arr[i]);
+		i--;
 	}
-	return (0);
+	return (NULL);
 }

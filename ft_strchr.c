@@ -1,29 +1,31 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 21:06:25 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/11 14:17:44 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strchr(const char *str, int c){
-   unsigned    char ch;
-   char *arr;
+#include "libft.h"
 
-   arr = (char *)str;
-   ch = (unsigned char)c; 
-   while (*arr){
-      if (*arr == ch){
-         return arr;
-      }
-      arr++;
-   }
-   return NULL;
-}
+char	*ft_strchr(const char *s, int c)
+{
+	char	ch;
+	char	*arr;
 
-int main () {
-   const char str[] = "http://www.1337.com";
-   const char ch = '.';
-   char *ret;
-
-   ret = ft_strchr(str, ch);
-
-   printf("%s\n", ret);
-   
-   return(0);
+	arr = (char *)s;
+	ch = (char)c;
+	while (*arr)
+	{
+		if (*arr == ch)
+			return (arr);
+		arr++;
+	}
+	if (*arr == '\0' && c == '\0')
+		return (arr);
+	return (NULL);
 }

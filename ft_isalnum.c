@@ -1,51 +1,22 @@
-#include <stdio.h>
-#include <ctype.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 20:10:01 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:32:55 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int  ft_isalnum(int c){
-    if (!((c >= '0' && c <= '9') || (c >= 'a' &&  c <= 'z')
-        || (c >= 'A' &&  c <= 'Z')))
-        return (0);
-    else
-        return (1);
-}
+#include "libft.h"
 
-int main()
+int	ft_isalnum(int c)
 {
-    char c;
-    int result;
-
-    c = '5';
-    result = isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = 'Q';
-    result = isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = 'l';
-    result = isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = '+';
-    result = isalnum(c);
-    printf("When %c is passed, return value is %d\n\n", c, result);
-
-    printf("/*********** MINE ************/\n\n");
-
-    c = '5';
-    result = ft_isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = 'Q';
-    result = ft_isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = 'l';
-    result = ft_isalnum(c);
-    printf("When %c is passed, return value is %d\n", c, result);
-
-    c = '+';
-    result = ft_isalnum(c);
-    printf("When %c is passed, return value is %d\n\n", c, result);
-    return 0;
+	if (!((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
+			|| (c >= 'A' && c <= 'Z')))
+		return (0);
+	else
+		return (1);
 }

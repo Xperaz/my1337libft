@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 21:10:28 by aouhadou          #+#    #+#             */
-/*   Updated: 2021/11/07 09:34:22 by aouhadou         ###   ########.fr       */
+/*   Created: 2021/11/05 09:58:57 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:31:38 by aouhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
-	unsigned int	len;
-	char			*res;
+	int		start;
+	int		end;
+	char	*res;
+	int		i;
 
-	if (!s1)
+	if (s1 == NULL)
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	res = (char *) malloc(len * sizeof(char));
+	if (set == NULL)
+		return (ft_strdup(s1));
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strrchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strrchr(set, s1[end - 1]))
+		end--;
+	res = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
-	k = 0;
-	while (s1[i] != '\0')
-		res[k++] = s1[i++];
-	j = 0;
-	while (s2[j] != '\0')
-		res[k++] = s2[j++];
-	res[k] = '\0';
+	while (start < end)
+		res[i++] = s1[start++];
+	res[i] = '\0';
 	return (res);
 }

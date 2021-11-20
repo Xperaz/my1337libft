@@ -1,26 +1,27 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 19:54:26 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/18 00:35:20 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n){
-  long long unsigned int i;
-  char *res;
-  res = s;
-  
-  i = 0;
-  while (i < n){
-      res[i] = 0;
-      i++;
-  }
-}
+#include "libft.h"
 
-int main()
+void	ft_bzero(void *s, size_t n)
 {
- //char str[100] = "hello";
- char str1[100] = "hello";
- //char *res = bzero(str, 3);
- // printf("%s\n", res);
- ft_bzero(str1, 9);
- return EXIT_SUCCESS;
-}
+	size_t	i;
+	char	*res;
 
+	res = s;
+	i = 0;
+	while (i < n)
+	{
+		res[i] = '\0';
+		i++;
+	}
+}

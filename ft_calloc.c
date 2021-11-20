@@ -1,34 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 20:03:35 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:26:08 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_bzero(void *s, size_t n){
-  long long unsigned int i;
-  char *res;
-  res = s;
-  
-  i = 0;
-  while (i < n){
-      res[i] = 0;
-      i++;
-  }
-}
+#include "libft.h"
 
-void* ft_calloc( size_t num, size_t size ){
-    size_t *call;
-    size_t memory;
-
-    memory = num * size;
-    call = (void *) malloc(memory);
-    if (!call)
-        return NULL;
-    ft_bzero(call, memory);
-    free(call);
-    return call;
-}
-
-int main()
+void	*ft_calloc(size_t count, size_t size)
 {
-    if (ft_calloc(5, 5))
-        printf("success");
-    return 0;
+	size_t	*call;
+	size_t	memory;
+
+	memory = count * size;
+	call = (void *) malloc(memory);
+	if (!call)
+		return (NULL);
+	ft_bzero(call, memory);
+	return (call);
 }

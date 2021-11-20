@@ -1,31 +1,32 @@
-#include <stdio.h>
-#include <string.h>
-void *ft_memcpy(void *dest, const void * src, size_t n){
-    char *dest1;
-    dest1 = dest;
-    const char *src1;
-    src1 = src;
-    unsigned int i;
-    
-    i = 0;
-    while (i < n){
-        dest1[i] = src1[i];
-        i++;
-    }
-    return dest;
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 20:47:45 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:29:11 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main () {
-   const char src[50] = "http://www.1337.com";
-   char dest[50];
-   const char src1[50] = "http://www.1337.com";
-   char dest1[50];
-   
-   memcpy(dest1, src1, sizeof(src1));
-   printf("%s\n", dest1);
-  
-   ft_memcpy(dest, src, sizeof(src));
-   printf("%s\n", dest);
-   
-   return(0);
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char		*dest1;
+	const char	*src1;
+	size_t		i;
+
+	src1 = src;
+	dest1 = dst;
+	if (dest1 == NULL && src == NULL)
+		return (NULL);
+	i = 0;
+	while (i < n)
+	{
+		dest1[i] = src1[i];
+		i++;
+	}
+	return (dest1);
 }

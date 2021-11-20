@@ -1,32 +1,32 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouhadou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/06 20:37:53 by aouhadou          #+#    #+#             */
+/*   Updated: 2021/11/07 09:33:19 by aouhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memchr(const void *str, int c, size_t n){
-   size_t   i;
-   unsigned char ch;
-   unsigned char *res;
-   res = (unsigned char *)str;
-   ch = (unsigned char)c;
+#include "libft.h"
 
-   i = 0;
-   while(i < n){
-      if(*res == ch){
-         return res;
-      }
-      i++;
-      res++;
-   }
-   return NULL;
-}
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t	i;
+	char	ch;
+	char	*res;
 
-int main () {
-   const char str[] = "http:www.1337.ma";
-   const char ch = ':';
-  char *ret;
-
-   ret = ft_memchr(str, ch, 5);
-
-   printf("%s", ret);
-
-   return(0);
+	res = (char *)s;
+	ch = (char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (*res == ch)
+			return (res);
+		i++;
+		res++;
+	}
+	return (NULL);
 }
