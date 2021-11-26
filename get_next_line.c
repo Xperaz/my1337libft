@@ -40,39 +40,38 @@ char    *get_line(char *buff)
         count++;
     count += 1;
     res = malloc((count + 1) * sizeof(char));
-    res = memcpy(res, buff, count);
+    res = memmove(res, buff, count);
     res[count] = '\0';
     return (res);
 }
 
-char    *get_reminder(char *rem)
+char	*get_reminder(char *str)
 {
-    char    *res;
-    int     len;
-    int     count;
+	char	*rem;
+	int		count;
+	int		len;
 
-    len = ft_strlen(rem);
-    if (!rem)
-        return (NULL);
-    count = 0;
-    while (rem[count] != '\n' && rem[count])
-        count++;
-    if (!rem[count])
-    {
-        free (rem);
-        return (0);
-    }
-    count += 2;
-    res = malloc(((len - count) + 1) * sizeof(char));
-    if (!res)
-        return (NULL);
-    res = strchr(rem, '\n') + 1;
-    res[count] = '\0';
-    rem = res;
-    //free (res);
-    /*if (ft_strlen(res) == 0)
-        return (free(res), NULL);*/
-    return (rem);
+	count = 0;
+	len = ft_strlen(str);
+	if (!str)
+		return (NULL);
+	while (str[count] && str[count] != '\n')
+		count++;
+	if (!str[count])
+	{
+		free (str);
+		return (0);
+	}
+	rem = (char *)malloc(sizeof(char) * (len - count + 1));
+	if (!rem)
+		return (NULL);
+	count += 1;
+	memmove(rem, str + count, (len - count));
+	rem[len - count] = '\0';
+	free (str);
+	/*if (ft_strlen(rem) == 0)
+		return (free(rem), NULL);*/
+	return (rem);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -150,6 +149,8 @@ int main()
     char *string = get_next_line(fd);
     printf("%s", string);
     char *string1 = get_next_line(fd);
-    printf("%s", string);
+    printf("%s", string1);
+    char *string2 = get_next_line(fd);
+    printf("%s", string2);
     return 0;
 }
